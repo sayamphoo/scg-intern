@@ -1,0 +1,26 @@
+# Ignore virtual environment
+venv/
+*/.venv
+
+# Ignore Python bytecode
+*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore database file
+database.db
+database.sqlite3
+
+# Ignore environment variables and secrets
+.env
+.env.*
+
+# Ignore logs and cache
+*.log
+*.sqlite3-journal
+
+# Ignore IDE and editor settings
+.vscode/
+.idea/
+*.iml

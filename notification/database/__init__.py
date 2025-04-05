@@ -1,4 +1,4 @@
-# from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base
 # # Base สำหรับใช้กับ Models
-# BaseSQLServer = declarative_base()
+BaseSQLServer = declarative_base()
 # BaseSQLite = declarative_base()

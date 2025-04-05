@@ -1,14 +1,13 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import QueuePool
-# from database import BaseSQLServer, BaseSQLite
 from urllib.parse import quote_plus
 
 # Connection string for SQL Server
-username = "userscm"
-password = quote_plus("zP@ssw0rd#2025")  # เข้ารหัสให้เหมาะกับ URL
+username = "userai"
+password = quote_plus("useraiP@ssw0rd")  # เข้ารหัสให้เหมาะกับ URL
 server = "10.28.254.35"
-database = "SCM"
+database = "pvdb"
 driver = "ODBC Driver 17 for SQL Server"
 
 # สร้าง connection string
@@ -26,35 +25,11 @@ engine_sql_server  = create_engine(
     pool_timeout=30       # ระยะเวลารอการเชื่อมต่อ
 )
 
-
-# Session factory
 SessionLocalSQLServer = sessionmaker(autocommit=False, autoflush=False, bind=engine_sql_server)
-# SessionLocalSQLite = sessionmaker(autocommit=False, autoflush=False, bind=engine_sqlite)
 
-
-# def init_db():
-#     try:
-#         print("Creating tables...")
-#         BaseSQLServer.metadata.create_all(engine_sql_server)
-#         # BaseSQLite.metadata.create_all(engine_sqlite)
-#         print("Tables created successfully!")
-#     except Exception as e:
-#         print(f"Error creating tables: {e}")
-#         raise 
-        
 def get_db_sql_server():
     db = SessionLocalSQLServer()
     try:
         yield db
     finally:
         db.close()
-
-
-# def get_db_sql_lite():
-#     db = SessionLocalSQLite()
-#     try:
-#         yield db
-        
-#     finally:
-#         db.close()
-        
